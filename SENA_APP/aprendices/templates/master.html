@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock %}</title>        
+        {% load bootstrap5 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript%}
+
+        <link rel="stylesheet" href="{% static 'members/mystyles.css' %}">
+    </head>
+    <body>    
+        <header>
+            <div class="text-white p-2 nav-con-imagen-fondo">
+                <div class="container-fluid d-flex align-items-center">
+                    
+                    <img 
+                        src="{% static 'members/logo.png' %}" 
+                        alt="Logo" 
+                        style="
+                            width: 50px; 
+                            height: 50px; 
+                            border-right: 1px solid white; 
+                            padding-right: 15px; 
+                            padding-left: 0px; 
+                        "
+                    >
+                    <span class="ms-4 fs-4 fw-bold" >SENA APP</span>
+                    
+                    <nav class="d-flex ms-auto align-items-center btn-personalizado">
+                        
+                        <a href="{% url 'home' %}">
+                            <button type="button" class="btn btn-primary shadow-sm">Inicio</button>
+                        </a>
+                        <a href="{% url 'admin:index' %}">
+                            <button type="button" class="btn btn-primary shadow-sm">Panel Admin</button>
+                        </a>
+                        <a href="{% url 'aprendices' %}">
+                            <button type="button" class="btn btn-primary shadow-sm">Ver Aprendices</button>
+                        </a>
+                        <a href="{% url 'admin:index' %}">
+                            <button type="button" class="btn btn-primary shadow-sm">Ver Instructores</button>
+                        </a>
+                        <a href="{% url 'admin:index' %}">
+                            <button type="button" class="btn btn-primary shadow-sm">Ver Programas</button>
+                        </a>
+                        <a href="{% url 'admin:index' %}"> 
+                            <button type="button" class="btn btn-primary shadow-sm">Ver Cursos</button>
+                        </a>
+                    </nav>
+                </div>
+            </div>  
+        </header>
+          
+        <div class="container"> 
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <footer class="cuadro_abajo">
+            <div class="text-center">
+                <p>&copy; 2025 SENA APP. Todos los derechos reservados.</p>
+                <p>Desarrollado por el Alexandra Bedoya.</p>
+                <p>Contacto:3226258103</p>
+            </div>
+        </footer>
+    </body>
+</html>

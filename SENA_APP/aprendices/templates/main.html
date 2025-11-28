@@ -1,0 +1,75 @@
+{% extends "master.html" %}
+
+{%block title%}SENA APP - Inicio{% endblock %}
+
+{% block content %}
+
+<div class="cuadro-binvenidos container mt-4">
+    <div class="row align-items-center">
+        
+        <div class="col-md-8 col-sm-12">
+            <div class="fuente">
+                <h2> 👋Bienvenidos a SENA APP</h2>
+                 </div>
+            <div class="texto-bienvenida">
+                <p>Tu plataforma para gestionar aprendices de manera eficiente.</p>
+                <p>Software de gestión de aprendices, instructores y programas de formación del SENA centro minero.</p>
+             </div>
+
+        </div>
+
+        <div class="col-md-4 col-sm-12 text-center">
+            <img src="static/members/animado.jpg" 
+                 alt="Imagen de Bienvenida Animada"
+                 class="img-fluid imagen-bienvenida">
+        </div>
+    </div>
+</div>
+<div class="cuadro-pag-principal container mt-4">
+    <div class="row">
+        
+        <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card-info">
+                <center><h4>Lista de Aprendices</h4>
+                  <a href="{% url 'aprendices' %}">
+                <button type="button" class="btn btn-primary shadow-sm">Ver Aprendices</button>
+            </a>
+            <center>
+                </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card-info">
+                <center><h4>Lista de Instructores</h4>
+            <a href="{% url 'aprendices' %}">
+                <button type="button" class="btn btn-primary shadow-sm">Ver Aprendices</button>
+            </a>
+            </center>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card-info">
+                <center><h4>Lista de Programas</h4>
+                 <a href="{% url 'home' %}">
+                            <button type="button" class="btn btn-primary shadow-sm">Ver Programas</button>
+                        </a>
+                        </center>
+                </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card-info">
+               <center> <h4>Lista de Cursos</h4>
+                <a href="{% url 'home' %}">
+                            <button type="button" class="btn btn-primary shadow-sm">Ver Cursos</button>
+                        </a>
+                    </center>
+                </div>
+        </div>
+
+    </div>
+</div>
+
+        
+{% endblock %}
