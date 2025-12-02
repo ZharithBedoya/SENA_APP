@@ -31,16 +31,16 @@
                     
                     <nav class="d-flex ms-auto align-items-center btn-personalizado">
                         
-                        <a href="{% url 'home' %}">
+                        <a href="/">
                             <button type="button" class="btn btn-primary shadow-sm">Inicio</button>
                         </a>
                         <a href="{% url 'admin:index' %}">
                             <button type="button" class="btn btn-primary shadow-sm">Panel Admin</button>
                         </a>
-                        <a href="{% url 'aprendices' %}">
+                        <a href="{% url 'aprendices:lista_aprendices' %}">
                             <button type="button" class="btn btn-primary shadow-sm">Ver Aprendices</button>
                         </a>
-                        <a href="{% url 'admin:index' %}">
+                        <a href="{% url 'instructores:lista_instructores' %}">
                             <button type="button" class="btn btn-primary shadow-sm">Ver Instructores</button>
                         </a>
                         <a href="{% url 'admin:index' %}">
@@ -59,12 +59,15 @@
             {% endblock %}
         </div>
 
+    
         <footer class="cuadro_abajo">
+            <div class="col-12">
             <div class="text-center">
                 <p>&copy; 2025 SENA APP. Todos los derechos reservados.</p>
                 <p>Desarrollado por el Alexandra Bedoya.</p>
                 <p>Contacto:3226258103</p>
             </div>
+        </div>
         </footer>
     </body>
 </html>

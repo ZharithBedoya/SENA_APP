@@ -1,9 +1,10 @@
-from django.contrib import path
-from aprendices import views
-from django.contrib import admin
+from django.urls import path
+from . import views 
+
+app_name = 'aprendices'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.aprendices, name=''),
-    path ('aprendices/', views.aprendices, name='aprendices'),
-]
+    path('', views.home, name='home'),
+    path('aprendices/', views.aprendices, name='lista_aprendices'),
+    path('aprendices/aprendiz/<int:id_aprendiz>/', views.detalle_aprendiz, name='detalle_aprendiz'),
+    ]

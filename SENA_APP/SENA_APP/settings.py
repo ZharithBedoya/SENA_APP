@@ -38,8 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    # 🚨 App personalizada
+    'instructores',
     'aprendices',
     'bootstrap5',
 ]
