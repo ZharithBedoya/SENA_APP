@@ -42,7 +42,7 @@
             <div class="card-info">
                 <center><h4>Lista de Instructores</h4>
             <a href="{% url 'instructores:lista_instructores' %}">
-                <button type="button" class="btn btn-dark">Ver Aprendices</button>
+                <button type="button" class="btn btn-dark">Ver Instructores</button>
             </a>
             </center>
             </div>
@@ -51,7 +51,7 @@
         <div class="col-md-3 col-sm-6 mb-4">
             <div class="card-info">
                 <center><h4>Lista de Programas</h4>
-                 <a href="/">
+                 <a href="{% url 'programas:lista_programas'%}">
                             <button type="button" class="btn btn-dark">Ver Programas</button>
                         </a>
                         </center>

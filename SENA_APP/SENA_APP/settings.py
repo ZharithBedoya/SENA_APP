@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'instructores',
     'aprendices',
     'bootstrap5',
+    'programas'
 ]
 
 MIDDLEWARE = [
