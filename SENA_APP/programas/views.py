@@ -1,25 +1,25 @@
-from django.shortcuts import render 
-from django.http import HttpResponse
+from django.shortcuts import render
 from django.template import loader
+from django.http import HttpResponse
 from .models import Programa
-def main(request):
-    template = loader.get_template("main.html")
-    return HttpResponse(template.render())
+
+# Create your views here.
 
 def programas(request):
-    lista_programas = Programa.objects.all().values()
-    template = loader.get_template("lista_programa.html")
+    lista_programas = Programa.objects.all()
+    template = loader.get_template('lista_programa.html')
     context = {
-        "lista_programas": lista_programas,
-        "total_programas": lista_programas.count(),
+    'lista_programas': lista_programas,
+    'total_programas': lista_programas.count(),
     }
     return HttpResponse(template.render(context, request))
 
-
 def detalle_programa(request, programa_id):
-    programa_detalle = Programa.objects.get(id=programa_id)
-    template = loader.get_template("detalle_programa.html")
+    programa = Programa.objects.get(id=programa_id)
+    template = loader.get_template('detalle_programa.html')
+    
     context = {
-        "programa": programa_detalle,
+        'programa': programa,
     }
+    
     return HttpResponse(template.render(context, request))

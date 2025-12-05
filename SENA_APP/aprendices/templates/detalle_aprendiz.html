@@ -9,8 +9,8 @@
         <div class="col-12">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/" class="text-primary">Inicio</a></li>
-                    <li class="breadcrumb-item"><a href="{% url 'aprendices:lista_aprendices' %}" class="text-primary">Lista Aprendices</a>
+                    <li class="breadcrumb-item"><a href="/" class="back-link">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'aprendices:lista_aprendices' %}" class="back-link">Lista Aprendices</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">{{ aprendiz.nombre_completo }}</li>
                 </ol>
@@ -18,11 +18,11 @@
         </div>
     </div>
 
-
+    <!-- Información Principal del Instructor -->
     <div class="row mb-4">
         <div class="col-12">
             <div class="card shadow-sm">
-                <div class="bg-primary d-flex align-items-center">
+                <div class="card-header d-flex align-items-center">
                     <i class="bi bi-person-workspace me-2"></i>
                     <h4 class="mb-0">Perfil del Aprendiz</h4>
                 </div>

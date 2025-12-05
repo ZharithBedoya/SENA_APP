@@ -15,7 +15,8 @@
         <header>
             <div class="text-white p-2 nav-con-imagen-fondo">
                 <div class="container-fluid d-flex align-items-center">
-                    
+                    <!-- Agregar Bootstrap Icons -->
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"> 
                     <img 
                         src="{% static 'members/logo.png' %}" 
                         alt="Logo" 
@@ -46,7 +47,7 @@
                         <a href="{% url 'programas:lista_programas' %}">
                             <button type="button" class="btn btn-primary shadow-sm">Ver Programas</button>
                         </a>
-                        <a href="{% url 'admin:index' %}"> 
+                        <a href="{% url 'cursos:lista_cursos' %}"> 
                             <button type="button" class="btn btn-primary shadow-sm">Ver Cursos</button>
                         </a>
                     </nav>

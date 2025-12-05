@@ -38,7 +38,7 @@
                 <tbody>
                     {% for instructor in lista_instructores %}
                     <tr>
-                       <td><strong><a href ="instructor/{{instructor.id }}">{{instructor.tipo_documento}}{{instructor.documento_identidad}}</a></strong></td>
+                       <td><strong><a href="{% url 'instructores:detalle_instructor' instructor.id %}">{{instructor.tipo_documento}}{{instructor.documento_identidad}}</a></strong></td>
                         <td>{{instructor.nombre}} {{instructor.apellido}}</td>
                         <td>{{instructor.telefono }}</td>
                         <td>{{instructor.correo}}</td>

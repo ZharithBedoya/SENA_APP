@@ -38,9 +38,14 @@ class Programa(models.Model):
     fecha_creacion = models.DateField(verbose_name="Fecha de Creación del Programa")
     fecha_registro = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de Registro")
 
+    def __str__(self):
+        return f"{self.codigo} - {self.nombre}"
 
 class Meta:
 
     verbose_name = "Programa de Formación"
     verbose_name_plural = "Programas de Formación"
     ordering = ['nombre']
+    
+
+    
