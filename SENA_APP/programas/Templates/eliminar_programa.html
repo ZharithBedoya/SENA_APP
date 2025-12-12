@@ -1,0 +1,49 @@
+{% extends 'master.html' %}
+
+{% block title %}Eliminar Programa - SENA APP{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow border-danger">
+            <div class="card-header bg-danger text-white">
+                <h3 class="card-title mb-0">
+                    <i class="fas fa-exclamation-triangle"></i> Confirmar Eliminación
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-warning">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <strong>¡Atención!</strong> Esta acción no se puede deshacer.
+                </div>
+                
+                <p class="lead">¿Está seguro que desea eliminar permanentemente el siguiente programa de formación?</p>
+                
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ programa.nombre }}</h5>
+                        <p class="card-text">
+                            <strong>Código:</strong> {{ programa.codigo }}<br>
+                            <strong>Nivel de Formación:</strong> {{ programa.get_nivel_formacion_display }}<br>
+                            <strong>Modalidad:</strong> {{ programa.get_modalidad_display }}<br>
+                            <strong>Duración:</strong> {{ programa.duracion_meses }} meses
+                        </p>
+                    </div>
+                </div>
+                
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="{% url 'programas:lista_programas' %}" class="btn btn-secondary me-md-2">
+                            <i class="fas fa-times"></i> Cancelar
+                        </a>
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fas fa-trash"></i> Sí, Eliminar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

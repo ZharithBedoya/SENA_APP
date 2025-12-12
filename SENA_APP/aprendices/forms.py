@@ -14,7 +14,8 @@ class AprendizForm(forms.ModelForm):
             'telefono',
             'correo',
             'fecha_nacimiento',
-            'ciudad'
+            'ciudad',
+            'programa'
             
         ]
         # Widgets personalizados para mejorar la interfaz en el HTML
@@ -46,6 +47,10 @@ class AprendizForm(forms.ModelForm):
             'ciudad': forms.TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Ciudad de residencia'
+            }),
+            'programa': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'programa'
             })
         }
         # Etiquetas personalizadas

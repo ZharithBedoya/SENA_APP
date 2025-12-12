@@ -6,54 +6,73 @@
     <div class="col-12">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2>Lista de Instructores SENA</h2>
-            <hr>
-            <br>
-        </div>
-    </div>
+            <div>
+                <span class="badge bg-info fs-6">Total: {{ total_instructores }} instructores</span>
+                <a href="{% url 'instructores:crear_instructor' %}" class="btn btn-success ms-2">
+                    Nuevo Instructor
+                </a>
+            </div>
+        </div>    </div>
 </div>
 
 {% if lista_instructores %}
 <div class="row">
     <div class="col-12">
         <div class="table-responsive">
-            <center>
             <table class="table table-striped table-hover">
                 <thead class="table-dark">
                     <tr>
                         <th>Documento</th>
                         <th>Nombre Completo</th>
-                        <th>Teléfono</th>
-                        <th>Correo</th>
-                        <th>Fecha Nacimiento</th>
-                        <th> Direccion</th>
-                        <th> Nivel Educativo</th>
-                        <th> Especialidad</th>
-                        <th> Años de Experiencia</th>
-                        <th> Estado</th>
-                        <th> Fecha Viculacion </th>
-                        <th>Fecha Registro</th> 
+                        <th>Dirección y Ciudad</th>
+                        <th>Nivel Educativo</th>
+                        <th>Especialidad</th>
+                        <th>Estado</th>
+                        <th class="textt-center">Acciones</th>
                         
                     </tr>
                 </thead>
                 <tbody>
                     {% for instructor in lista_instructores %}
                     <tr>
-                       <td><strong><a href="{% url 'instructores:detalle_instructor' instructor.id %}">{{instructor.tipo_documento}}{{instructor.documento_identidad}}</a></strong></td>
-                        <td>{{instructor.nombre}} {{instructor.apellido}}</td>
-                        <td>{{instructor.telefono }}</td>
-                        <td>{{instructor.correo}}</td>
-                        <td>{{instructor.fecha_nacimiento}}</td>
-                        <td>{{instructor.direccion}} {{instructor.ciudad}}</td>
-                        <td>{{instructor.nivel_educacion}}</td>
-                        <td>{{instructor.especialidad}}</td>
-                        <td>{{instructor.anos_experiencia}}</td>
-                        <td>{{instructor.activo}}</td>
-                        <td>{{instructor.fecha_vinculacion|date:"d/m/Y"}}</td>
-                        <td>{{instructor.fecha_registro}}</td>
-                        <small class="text-muted">{{ instructor.programa }}</small>
+                       <td style="white-space: nowrap;"><strong><a href="{% url 'instructores:detalle_instructor' id_instructor=instructor.id %}">{{instructor.tipo_documento}}-{{instructor.documento_identidad}}</a></strong></td>
+                        <td style="white-space: nowrap;">{{instructor.nombre}} {{instructor.apellido}}</td>                        <td style="white-space: nowrap;">{{instructor.direccion}}, {{instructor.ciudad}}</td>
+                        <td style="white-space: nowrap;">{{instructor.get_nivel_educacion_display}}</td>
+                        <td style="white-space: nowrap;">{{instructor.especialidad}}</td>
+                        
+                        <td style="white-space: nowrap;">
+                            {% if instructor.activo %}
+                                <span class="badge bg-success">Activo</span>
+                            {% else %}
+                                <span class="badge bg-danger">Inactivo</span>
+                            {% endif %}
                         </td>
+                        
+                        <td class="text-center" style="white-space: nowrap;">
+                            <!-- Botón Ver Detalles -->
+                            <a href="{% url 'instructores:detalle_instructor' id_instructor=instructor.pk %}" 
+                               class="btn btn-sm btn-outline-info" 
+                               title="Ver detalles"
+                               data-bs-toggle="tooltip">
+                                <i class="bi bi-eye-fill"></i>
+                            </a>
+                            
+                            <!-- Botón Editar -->
+                            <a href="{% url 'instructores:editar_instructor' pk=instructor.pk %}" 
+                               class="btn btn-sm btn-outline-primary" 
+                               title="Editar instructor"
+                               data-bs-toggle="tooltip">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                            
+                            <!-- Botón Eliminar -->
+                            <a href="{% url 'instructores:eliminar_instructor' pk=instructor.pk %}" 
+                               class="btn btn-sm btn-outline-danger" 
+                               title="Eliminar instructor"
+                               data-bs-toggle="tooltip">
+                                <i class="bi bi-trash-fill"></i> 
+                           </a>
                     </tr>
-                </center> 
                     {% endfor %}
                 </tbody>
             </table>
@@ -69,7 +88,7 @@
             <p>Aún no se han registrado instructor en el sistema.</p>
             <hr>
             <p class="mb-0">
-                <a href="{% url 'admin:aprendices_aprendiz_add' %}" class="btn btn-success">
+                <a href="{% url 'instructores:crear_instructor' %}" class="btn btn-success">
                     Registrar Primer instructor
                 </a>
             </p>

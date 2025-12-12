@@ -1,0 +1,44 @@
+{% extends "master.html" %}
+
+{% block title %}Eliminar Curso - SENA APP{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div class="card shadow border-danger">
+            <div class="card-header bg-danger text-white">
+                <h3 class="mb-0"><i class="bi bi-trash-fill me-2"></i>Confirmar Eliminación</h3>
+            </div>
+            <div class="card-body">
+                <p class="lead">¿Está seguro de que desea eliminar el curso?</p>
+                <div class="alert alert-warning">
+                    <strong>¡Atención!</strong> Esta acción es irreversible.
+                </div>
+                
+                <div class="card bg-light mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ curso.nombre }}</h5>
+                        <p class="card-text">
+                            <strong>Código:</strong> {{ curso.codigo }} <br>
+                            <strong>Programa:</strong> {{ curso.programa.nombre }} <br>
+                            <strong>Instructor:</strong> {{ curso.instructor_coordinador }}
+                        </p>
+                    </div>
+                </div>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="d-flex justify-content-end">
+                        <a href="{% url 'cursos:detalle_curso' curso.id %}" class="btn btn-secondary me-2">
+                            Cancelar
+                        </a>
+                        <button type="submit" class="btn btn-danger">
+                            Sí, Eliminar Curso
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
